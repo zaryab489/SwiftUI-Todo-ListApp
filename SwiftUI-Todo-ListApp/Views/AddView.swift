@@ -7,6 +7,8 @@
 
 import SwiftUI
 struct AddView: View {
+    
+    @EnvironmentObject var listViewModel: ListViewModel
     @State var textFieldText: String = ""
     var body: some View {
         ScrollView {
@@ -16,9 +18,7 @@ struct AddView: View {
                     .frame(height:55)
                     .background(Color(.lightGray))
                     .cornerRadius(10)
-                Button(action: {
-                    
-                }, label: {
+                Button(action: saveButtonPressed, label: {
                     Text("Save".uppercased())
                         .foregroundColor(.white)
                         .font(.headline)
@@ -32,11 +32,15 @@ struct AddView: View {
         }
         .navigationTitle("Add an Item 🖋️")
     }
+    func saveButtonPressed() {
+        listViewModel.addItem(title: textFieldText)
+    }
 }
 
 #Preview {
     NavigationView {
         AddView()
     }
+    .environmentObject(ListViewModel())
    
 }
