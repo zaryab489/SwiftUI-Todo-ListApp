@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct itemModel: Identifiable {
+struct ItemModel: Identifiable {
     
     let id: String = UUID().uuidString
     let title: String

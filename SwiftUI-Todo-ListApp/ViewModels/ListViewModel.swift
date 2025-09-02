@@ -9,15 +9,15 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     
-    @Published var items: [itemModel] = []
+    @Published var items: [ItemModel] = []
     init() {
        getItems()
     }
     func getItems() {
         let newItems = [
-            itemModel(title: "This is the first item!", isCompleted: false),
-            itemModel(title: "This is second!", isCompleted: true),
-            itemModel(title: "Third!", isCompleted: false),
+            ItemModel(title: "This is the first item!", isCompleted: false),
+            ItemModel(title: "This is second!", isCompleted: true),
+            ItemModel(title: "Third!", isCompleted: false),
         ]
         items.append(contentsOf: newItems)
     }
@@ -31,10 +31,10 @@ class ListViewModel: ObservableObject {
         
     }
     func addItem(title: String) {
-        let newItem = itemModel(title: title, isCompleted: false)
+        let newItem = ItemModel(title: title, isCompleted: false)
         items.append(newItem)
     }
-    func updateItem (item: itemModel) {
+    func updateItem (item: ItemModel) {
         
 //        if let index = items.firstIndex { existingItem in
 //            return existingItem.id == item.id
@@ -43,7 +43,7 @@ class ListViewModel: ObservableObject {
 //            
 //        }
         if let index = items.firstIndex(where: { $0.id == item.id }) {
-            items[index] = itemModel(title: item.title, isCompleted: !item.isCompleted)
+            items[index] = ItemModel(title: item.title, isCompleted: !item.isCompleted)
             
         }
     }
