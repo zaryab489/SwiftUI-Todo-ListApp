@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListRowView: View {
-    let item: itemModel
+    let item: ItemModel
     var body: some View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle": "circle")
@@ -23,8 +23,8 @@ struct ListRowView: View {
 
 
 #Preview {
-    var item1 = itemModel(title: "First item!", isCompleted: false)
-    var item2 = itemModel(title: "Second item!", isCompleted: true)
+    var item1 = ItemModel(title: "First item!", isCompleted: false)
+    var item2 = ItemModel(title: "Second item!", isCompleted: true)
    // ListRowView(title: "This is the first item!")
      //var previews: some View {
         Group {
