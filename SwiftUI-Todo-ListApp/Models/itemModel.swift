@@ -9,7 +9,7 @@ import Foundation
 
 // immutable Struct
 
-struct ItemModel: Identifiable {
+struct ItemModel: Identifiable, Codable {
     
     let id: String
     let title: String
